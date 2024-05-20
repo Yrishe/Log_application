@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block title %}
+ My log app
+{% endblock %}
+
+{% block content %}
+    <h1>My log app</h1>
+    <h3>Members</h3>
+    <p>Check out all our <a href="{% url 'members' %}">Members</a></p>
+    <p><a href="{% url 'testing' %}">Testing</a></p>
+{% endblock %}
