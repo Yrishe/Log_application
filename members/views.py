@@ -9,6 +9,7 @@ views is where we define data y to be displayed on page x
 def members(request):
 	mymembers = Member.objects.all().values()
 	template = loader.get_template('all_members.html')
+    #this is how we pull data from a model to display 
 	context = {
 		'mymembers': mymembers,
 	}
@@ -31,9 +32,20 @@ def main(request):
 
 #for testing
 def testing(request):
-	template = loader.get_template('template.html')
-	context = {
-		'fruits': ['Apple', 'Banana', 'Cherry'],
-	}
-	return HttpResponse(template.render(context, request))
+    '''
+    This return specific columns
+    mydata = Member.objects.values_list('firstname')
+    
+    This return specific rows
+    mydata = Member.objects.filter(firstname='Bianca').values()
 
+    This Return records where lastname is "Refsnes" and id is 2
+    mydata = Member.objects.filter(lastname='Refsnes', id=2).values()
+
+    This Return records where firstname is either "Emil" or Tobias"
+    mydata = Member.objects.filter(firstname='Emil').values() | Member.objects.filter(firstname='Tobias').values()
+    '''
+    mydata = Member.objects.all()
+    template = loader.get_template('template.html')
+    context = {'mymembers': mydata,}
+    return HttpResponse(template.render(context, request))
