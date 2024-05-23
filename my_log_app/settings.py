@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-l(z#7%dj*euh9ldh%^wnr@jjc0+##t^2=rg@$1$5#fcf3p17-o"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+'''* means any address are allowed to host this site. This should be
+change into a real domain nam when you deploy your project to a public
+server.'''
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +51,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
 ]
 
 ROOT_URLCONF = "my_log_app.urls"
@@ -115,8 +120,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 STATIC_URL = "static/"
+
+#Added this
+STATICFILES_DIRS = [
+        BASE_DIR / 'staticFiles'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

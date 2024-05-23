@@ -1,18 +1,17 @@
 {% extends "master.html" %}
 
 {% block title %}
- My log app - List of all members
+  Log - List of all members
 {% endblock %}
 
+
 {% block content %}
-
- <p><a href="{% url 'main' %}">Home</a></p>
-
- <h1>Members</h1>
-
- <ul>
-  {% for x in mymembers %}
-   <li><a href="{% url 'details' x.id %}">{{ x.firstName }} {{ x.lastName }}</a></li>
-  {% endfor %}
- </ul>
+  <div class="mycard">
+    <h1>Members</h1>
+    <ul>
+      {% for x in mymembers %}
+        <li onclick="window.location = 'details/{{ x.id }}'">{{ x.firstname }} {{ x.lastname }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
