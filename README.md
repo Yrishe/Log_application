@@ -1,7 +1,7 @@
-I will use this README to keep track of the stages along the development.
+<h1> Exploring Django Framework : Step-by-step </h1>
 
--> I forgot to add this track at the beginning of the development. 
-However I will add what I can up to this stage.
+> [!TIP]
+> Helpful advice: A better way to learn complicated steps is taking notes. I hope this might be useful.
 
 1) I've learned a few key things to create a Django application. 
 See as follows: 
